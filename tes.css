@@ -1,31 +1,49 @@
-/* Style umum untuk navbar */
+/* Gaya umum untuk navbar */
 .navbar {
-    background-color: #f8f9fa;
-    padding: 10px;
+    background-color: #343a40; /* Warna latar belakang navbar */
+    padding: 10px 20px;
 }
 
-.nav-item {
-    display: inline-block;
-    margin: 0 10px;
-    font-size: 18px;
+/* Gaya untuk tautan navbar */
+.navbar .nav-link {
+    color: #ffffff; /* Warna teks default */
+    font-size: 16px;
+    margin-right: 10px;
+    text-transform: uppercase; /* Huruf kapital semua */
+    text-decoration: none; /* Menghapus garis bawah */
+    padding: 8px 12px;
+    border-radius: 4px; /* Membuat sudut membulat */
+    transition: all 0.3s ease; /* Efek transisi */
 }
 
-.nav-item a {
-    text-decoration: none;
-    color: #000;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+/* Gaya saat tautan di-hover */
+.navbar .nav-link:hover {
+    background-color: #495057; /* Warna latar saat hover */
+    color: #ffffff; /* Tetap putih */
 }
 
-/* Warna saat item navbar aktif */
-.nav-item.active a {
-    background-color: #007bff;
-    color: white;
+/* Gaya untuk tautan yang aktif */
+.navbar .nav-link.active {
+    color: #ffffff; /* Warna teks */
+    background-color: #007bff; /* Warna latar belakang */
+    font-weight: bold; /* Menebalkan teks */
+    border: 2px solid #0056b3; /* Tambahkan border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
 }
 
-/* Hover efek */
-.nav-item a:hover {
-    background-color: #0056b3;
-    color: white;
+/* Efek hover pada tautan aktif */
+.navbar .nav-link.active:hover {
+    background-color: #0056b3; /* Warna saat hover */
+    color: #e9ecef; /* Warna teks saat hover */
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+    .navbar .nav-link {
+        font-size: 14px; /* Perkecil font */
+        margin-right: 5px; /* Kurangi jarak antar tautan */
+    }
+    .navbar .login-btn {
+        margin-top: 10px;
+    }
 }
