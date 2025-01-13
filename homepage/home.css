@@ -1,50 +1,59 @@
     /* Navbar */
+/* Dasar tombol navigasi */
+.nav-link {
+    position: relative;
+    color: black;
+    text-decoration: none;
+}
 
-    .btn-login {
-        background-color: #0d1b2a;
-        color: white;
-        padding: 5px 20px;
-        padding-bottom: 7px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        opacity: 0.9;
-        text-decoration: none;
-        border-radius: 5rem;
-    }
-
-    .login-btn {
-        margin-right: 5rem;
-    }
-
-    .navbar-item {
-        margin-left: 6rem;
-    }
-
-    .nav-link{
-        position: relative;
-    }
-
-    .nav-link:hover {
-        color: #007bff;
-    }
-
-    .nav-link::after {
+/* Efek garis kecil saat elemen aktif */
+.nav-link.active::after {
     content: '';
-    opacity: 0;
-    transition: all 0.2s;
-    height: 2px;
-    width: 100%;
-    background-color: blue;
     position: absolute;
-    bottom: 0;
+    bottom: -5px; /* Letak garis */
     left: 0;
-    }
+    width: 100%; /* Garis penuh */
+    height: 2px; /* Tebal garis */
+    background-color: #007bff; /* Warna garis */
+    transition: width 0.3s ease;
+}
 
-    .nav-link:hover::after {
-    opacity: 1;
-    }
+/* Efek hover untuk elemen navigasi */
+.nav-link:hover::after {
+    width: 100%;
+    background-color: #007bff;
+}
+
+/* Hover efek pada warna teks */
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Style untuk tombol login */
+.btn-login {
+    background-color: #0d1b2a;
+    color: white;
+    padding: 5px 20px;
+    padding-bottom: 7px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    text-decoration: none;
+    border-radius: 5rem;
+}
+
+.login-btn {
+    margin-right: 5rem;
+}
+
+.navbar-item {
+    margin-left: 6rem;
+}
+
+
+
 
 
     /* Carousel */

@@ -1,0 +1,35 @@
+body:before {
+    content: '';
+    position: absolute;
+    top: 40%;       /* Posisi dari atas */
+    left: -60%;     /* Posisi dari kiri */
+    right: -60%;    /* Posisi dari kanan */
+    bottom: 0;      /* Posisi dari bawah */
+    opacity: 0.3;   /* Transparansi */
+    pointer-events: none; /* Tidak bisa diinteraksi */
+    background: radial-gradient(circle, #007bff, transparent); /* Efek gradasi */
+    z-index: 0;     /* Latar belakang */
+}
+
+nav {
+    position: relative;
+    z-index: 1; /* Agar elemen nav berada di atas latar belakang */
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 40px; /* Jarak antar elemen */
+}
+
+nav.before .active-element {
+    transform: rotateY(180deg); /* Rotasi elemen aktif */
+    transition: transform 0.5s ease; /* Efek transisi */
+}
+
+nav li.active {
+    font-weight: bold;
+    color: #007bff; /* Warna elemen aktif */
+}

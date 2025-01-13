@@ -1,0 +1,134 @@
+.nav-link {
+    position: relative;
+    color: black;
+    text-decoration: none;
+}
+
+/* Efek garis kecil saat elemen aktif */
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Letak garis */
+    left: 0;
+    width: 100%; /* Garis penuh */
+    height: 2px; /* Tebal garis */
+    background-color: #007bff; /* Warna garis */
+    transition: width 0.3s ease;
+}
+
+/* Efek hover untuk elemen navigasi */
+.nav-link:hover::after {
+    width: 100%;
+    background-color: #007bff;
+}
+
+/* Hover efek pada warna teks */
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Style untuk tombol login */
+.btn-login {
+    background-color: #0d1b2a;
+    color: white;
+    padding: 5px 20px;
+    padding-bottom: 7px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    text-decoration: none;
+    border-radius: 5rem;
+}
+
+.login-btn {
+    margin-right: 5rem;
+}
+
+.navbar-item {
+    margin-left: 6rem;
+}
+
+
+.artikel {
+    margin: 1rem 3rem;
+}
+
+.news {
+    margin: 0;
+}
+
+.card {
+    position: relative;
+    width: 32rem;
+    height: 20.5rem ;
+    overflow: hidden; /* Hindari elemen keluar dari card */
+    border-radius: 2px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa; /* Tambahkan warna latar belakang */
+}
+
+
+.card img {
+    width: 100%; /* Pastikan gambar memenuhi lebar card */
+    height: 100%; /* Pastikan gambar memenuhi tinggi card */
+    border-radius: 5px; /* Agar sesuai dengan card */
+}
+
+
+.card-link {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* card slide*/
+
+
+.news {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+/* Gaya untuk card */
+
+
+/* Gaya untuk overlay */
+.overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Warna overlay */
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease; /* Efek transisi */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gaya overlay saat di-hover */
+.card:hover .overlay {
+    bottom: 0;
+}
+
+/* Gaya untuk teks dalam overlay */
+.overlay h5, .overlay p {
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+.overlay h5 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 16px;
+}
