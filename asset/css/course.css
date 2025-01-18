@@ -15,12 +15,6 @@ body {
     flex-direction: column;
 }
 
-.nav-link {
-    position: relative;
-    color: black;
-    text-decoration: none;
-}
-
 
 /* style untuk list mapel */
 .mapel {
@@ -47,6 +41,12 @@ body {
     padding: 1rem 0.5rem;
 }
 
+/* Navbar */
+.nav-link {
+    position: relative;
+    color: black;
+    text-decoration: none;
+}
 
 /* Efek garis kecil saat elemen aktif */
 .nav-link.active::after {
@@ -167,8 +167,6 @@ body {
 .overlay p {
     font-size: 16px;
 }
-
-
 
 
 /* Footer */
