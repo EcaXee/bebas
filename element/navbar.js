@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
                   <li class="nav-item">
                       <a class="nav-link" href="#" onclick="setActive(this)">Forum</a>
                   </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" onclick="setActive(this)">Dashboard</a>
+                  </li>
               </ul>
           </div>
       </div>

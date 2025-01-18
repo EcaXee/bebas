@@ -1,8 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'poppins';
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .nav-link {
     position: relative;
     color: black;
     text-decoration: none;
 }
+
+
+/* style untuk list mapel */
+.mapel {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+.kelas {
+    margin-left: 5rem;
+}
+
+.semester {
+    margin-right: 5rem;
+}
+
+.mapel-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.mapel-card {
+    padding: 1rem 0.5rem;
+}
+
 
 /* Efek garis kecil saat elemen aktif */
 .nav-link.active::after {
@@ -50,19 +94,10 @@
     margin-left: 6rem;
 }
 
-
-.artikel {
-    margin: 1rem 3rem;
-}
-
-.news {
-    margin: 0;
-}
-
 .card {
     position: relative;
-    width: 32rem;
-    height: 20.5rem ;
+    width: 22rem;
+    height: 10.5rem ;
     overflow: hidden; /* Hindari elemen keluar dari card */
     border-radius: 2px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -131,4 +166,26 @@
 
 .overlay p {
     font-size: 16px;
+}
+
+
+
+
+/* Footer */
+footer  {
+    margin-top: auto;
+}
+
+.footers {
+    background-color: rgba(25, 33, 51, 1);
+    color: white;
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact {
+    font-size: 1.3rem;
 }
