@@ -26,9 +26,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("Navbar").innerHTML = navbar;
 
-    // Tambahkan fungsi untuk set active di navbar
-    window.setActive = function (element) {
-        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-        element.classList.add('active');
-    };
-});
+        const navbarLinks = document.querySelectorAll(".nav-link");
+      
+        // Fungsi untuk mengatur elemen aktif
+        window.setActive = function (element) {
+          const activeHref = element.getAttribute("href");
+          localStorage.setItem("activeNav", activeHref);
+        };
+      
+        // Fungsi untuk menandai elemen aktif saat halaman dimuat
+        const setActiveOnLoad = function () {
+          const activeHref = localStorage.getItem("activeNav");
+          if (activeHref) {
+            navbarLinks.forEach(link => {
+              if (link.getAttribute("href") === activeHref) {
+                link.classList.add("active");
+              } else {
+                link.classList.remove("active");
+              }
+            });
+          }
+        };
+      
+        // Panggil fungsi untuk menandai elemen aktif saat halaman dimuat
+        setActiveOnLoad();
+      });
