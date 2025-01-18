@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="navbar-item" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                      <a class="nav-link active" aria-current="true" href="../homepage/home.html" onclick="setActive(this)">Home</a>
+                      <a class="nav-link active" aria-current="true" href="../pages/home.html" onclick="setActive(this)">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="../course/course.html" onclick="setActive(this)">Course</a>
+                      <a class="nav-link" href="../pages/course.html" onclick="setActive(this)">Course</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="#" onclick="setActive(this)">Forum</a>
