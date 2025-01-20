@@ -14,13 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
                       <a class="nav-link" href="#" onclick="setActive(this)">Forum</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#" onclick="setActive(this)">Dashboard</a>
+                      <a class="nav-link" href="/pages/dashboard.html" onclick="setActive(this)">Dashboard</a>
                   </li>
               </ul>
           </div>
       </div>
       <div class="login-btn">
-          <a class="btn-login" href="/login/login.html">Log In</a>
+          <a class="btn-login" href="/pages/login.html">Log In</a>
       </div>
     </nav>`;
 
