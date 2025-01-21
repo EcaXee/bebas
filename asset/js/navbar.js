@@ -14,7 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
                       <a class="nav-link" href="../pages/forum.html" onclick="setActive(this)">Forum</a>
                   </li>
                   <li class="nav-item">
+<<<<<<< HEAD
                       <a class="nav-link" href="../pages/dashboard.html" onclick="setActive(this)">Dashboard</a>
+=======
+                      <a class="nav-link" href="../pages/dashboard.php" onclick="setActive(this)">Dashboard</a>
+>>>>>>> 95079a454c0a340d720b6af1b8250bbaf008e8e2
                   </li>
               </ul>
           </div>

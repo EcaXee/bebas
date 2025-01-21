@@ -63,7 +63,7 @@
                         <a href="/pages/tambah_data_guru.html">
                             <button type="button">Tambah Data</button>
                         </a>
-                        <a href="list_data_guru.html">
+                        <a href="list_data_guru.php">
                             <button type="button">Edit</button>
                         </a>
                     </div>
@@ -72,19 +72,44 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Nama</th>
                                 <th>NIP</th>
+                                <th>Nama</th>
+                                <th>Alamat</th>
                                 <th>Email</th>
                                 <th>Keterangan</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Tomi Sudjaka</td>
-                                <td>123456789</td>
-                                <td>tomi@smkbumigora.ac.id</td>
-                                <td>Tetap</td>
-                            </tr>
+                            <tbody>
+                            <?php
+                            include '../proses/db_connection.php';
+
+                            $sql = "SELECT * FROM guru";
+                            $result = $conn->query($sql);
+                            if ($conn->connect_error) {
+                                die("Koneksi gagal: " . $conn->connect_error);
+                            }
+                
+                            $sql = "SELECT * FROM guru";
+                            $result = $conn->query($sql);
+                
+                            if ($result->num_rows > 0) {
+                                // Output data dari setiap baris
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row["nip"] . "</td>";
+                                    echo "<td>" . $row["nama"] . "</td>";
+                                    echo "<td>" . $row["alamat"] . "</td>";
+                                    echo "<td>" . $row["email"] . "</td>";
+                                    echo "<td>" . $row["keterangan"] . "</td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='8'>Tidak ada data</td></tr>";
+                            }
+                
+                            $conn->close();
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -95,7 +120,7 @@
                 <div class="d-flex justify-content-between align-content-center">
                     <h4>SISWA</h4>
                     <div class="right-button">
-                        <a href="tambah_data_siswa.html">
+                        <a href="../pages/tambah_data_siswa.html">
                         <button type="button">Tambah Data</button>
                         </a>
                         <a href="list_data_siswa.html">
@@ -104,7 +129,7 @@
                     </div>
                 </div>
                 <div class="list d-flex justify-content-center">
-                    <table class="table">
+                   <!-- <table class="table">
                         <thead>
                             <tr>
                                 <th>Nama</th>
@@ -114,16 +139,15 @@
                                 <th>Keterangan</th>
                             </tr>
                         </thead>
+                        </tbody>
                         <tbody>
-                            <tr>
-                                <td>Ahmad Deny Ilhamdi</td>
-                                <td>2301040003</td>
-                                <td>2</td>
-                                <td>Multimedia</td>
-                                <td>aktif</td>
-                            </tr>
+                           
+                            // Menutup koneksi
+                            $conn->close();
+                            ?>
                         </tbody>
                     </table>
+                    !-->
                 </div>
             </div>
         </div>
@@ -139,7 +163,8 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
-    ></script>
+    >
+    </script>
     <script src="../asset/js/navbar.js"></script>
     <script src="../asset/js/footer.js"></script>
   </body>

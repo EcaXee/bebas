@@ -23,14 +23,14 @@
             <h2>Tambah Data Guru</h2>
             <!-- GURU -->
             <div class="manage column">
-                <form action="/submit_guru_data" method="post">
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nama" name="nama" required>
-                    </div>
+                <form action="../proses/data_guru.php" method="post">
                     <div class="mb-3">
                         <label for="nip" class="form-label">NIP</label>
                         <input type="text" class="form-control" id="nip" name="nip" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama" name="nama" required>
                     </div>
                     <div class="mb-3">
                         <label for="alamat" class="form-label">Alamat</label>
@@ -59,19 +59,16 @@
                         <label class="form-label">Keterangan</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="keterangan" id="keterangan1" value="Tetap" required>
-                            <label class="form-check-label" for="keterangan1">
-                                Tetap
-                            </label>
+                            <label class="form-check-label" for="keterangan1">Tetap</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="keterangan" id="keterangan2" value="Tidak Tetap" required>
-                            <label class="form-check-label" for="keterangan2">
-                                Tidak Tetap
-                            </label>
+                            <label class="form-check-label" for="keterangan2">Tidak Tetap</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
+                
             </div>
         </div>
       </div>
