@@ -57,26 +57,17 @@
                     </div>
                     <div class="mb-3">
                         <label for="kelas" class="form-label">Kelas</label>
-                        <input type="text" class="form-control" id="kelas" name="kelas" required>
+                        <select class="form-select" id="kelas" name="kelas" required>
+                            <option value="">Pilih Kelas</option>
+                            <!-- Options will be populated from the database -->
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="jurusan" class="form-label">Jurusan</label>
-                        <input type="text" class="form-control" id="jurusan" name="jurusan" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Keterangan</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="keterangan" id="keterangan1" value="Aktif" required>
-                            <label class="form-check-label" for="keterangan1">
-                                Aktif
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="keterangan" id="keterangan2" value="Tidak Aktif" required>
-                            <label class="form-check-label" for="keterangan2">
-                                Tidak Aktif
-                            </label>
-                        </div>
+                        <select class="form-select" id="jurusan" name="jurusan" required>
+                            <option value="">Pilih Jurusan</option>
+                            <!-- Options will be populated from the database -->
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
