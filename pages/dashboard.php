@@ -1,5 +1,5 @@
 <?php
-
+include '../proses/session_admin.php'
 ?>
 
 <!DOCTYPE html>
