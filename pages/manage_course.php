@@ -1,3 +1,6 @@
+<?php
+include '../proses/db_connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,47 +20,7 @@
     <!-- Main Section -->
     <main>
       <!-- Sidebar -->
-      <div class="sidebar">
-        <h4>Admin</h4>
-        <ul class="nav flex-column">
-            <div class="menu">
-                <li class="nav-item">
-                    <div class="profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
-                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                        </svg>
-                        <p>nama</p>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/manage_guru.php">
-                        Guru
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/manage_siswa.php">
-                        Siswa
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/manage_forum.php">
-                        Forum
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/manage_course.php">
-                        Course
-                    </a>
-                </li>
-            </div>
-            <div class="home">
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/home.html">
-                        Home
-                    </a>
-                </li>
-            </div>
-        </ul>
+      <div id="Side_bar">
       </div>
       <div class="container">
         <div class="dashboard">
@@ -68,7 +31,7 @@
               <h4>Course</h4>
               <div class="right-button">
                 
-                <a href="../pages/tambah_berita.html">
+                <a href="../pages/tambah_data_mapel.php">
                   <button type="button">Tambah Data</button>
                 </a>
               </div>
@@ -76,14 +39,19 @@
             <div class="list d-flex justify-content-center">
               <div class="container">
                 <div class="subject border-bottom pb-2">
+                <?php
+                    // Ambil data berita terbaru dari database
+                    $query = mysqli_query($conn, "SELECT * FROM mapel ORDER BY created_at DESC");
+                    while ($row = mysqli_fetch_array($query)) {
+                    ?>
                   <div class="d-flex justify-content-between">
                     <div>
-                      <h5><a href="#">Desain Komunikasi</a></h5>
+                    <h5><a href="course_list.php?id=<?php echo $row['id_mapel']; ?>"><?php echo $row['nama_mapel']; ?></a></h5>
                       <div class="detail d-flex flex-row">
-                        <p>Rojak S.pd</p>
+                        <p><?php echo $row['nama_guru']; ?></p>
                         <p>kelas</p>
-                        <p>1</p>
-                        <p>Multimedia</p>
+                        <p><?php echo $row['kelas']; ?></p>
+                        <p><?php echo $row['jurusan']; ?></p>
                       </div>
                     </div>
                     <div>
@@ -91,6 +59,9 @@
                     </div>
                   </div>
                 </div>
+                <?php
+                    }
+                  ?>
               </div>
             </div>
           </div>
@@ -104,5 +75,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="../asset/js/navbar.js"></script>
+    <script src="../asset/js/sidebar_admin.js"></script>
   </body>
 </html>

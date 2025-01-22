@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="navbar-item" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                      <a class="nav-link active" aria-current="true" href="../pages/home.html" onclick="setActive(this)">Home</a>
+                      <a class="nav-link active" aria-current="true" href="../pages/home.php" onclick="setActive(this)">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="../pages/course.html" onclick="setActive(this)">Course</a>
+                      <a class="nav-link" href="../pages/course.php" onclick="setActive(this)">Course</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="../pages/forum.html" onclick="setActive(this)">Forum</a>
+                      <a class="nav-link" href="../pages/forum.php" onclick="setActive(this)">Forum</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="../pages/dashboard.php" onclick="setActive(this)">Dashboard</a>
