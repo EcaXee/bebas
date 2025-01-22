@@ -1,3 +1,13 @@
+<?php
+include '../proses/db_connection.php';
+
+$query = "SELECT siswa.nama, siswa.nis, kelas.nama_kelas, jurusan.nama_jurusan 
+          FROM siswa 
+          JOIN kelas ON siswa.kelas_id = kelas.id 
+          JOIN jurusan ON siswa.jurusan_id = jurusan.id";
+$result = $conn->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -44,6 +54,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>
+                                        <td>" . $row['nama'] . "</td>
+                                        <td>" . $row['nis'] . "</td>
+                                        <td>" . $row['nama_kelas'] . "</td>
+                                        <td>" . $row['nama_jurusan'] . "</td>
+                                      </tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='4'>Tidak ada data siswa</td></tr>";
+                        }
+                        ?>
                         <tr>
                             <td><a href="view_data_siswa.html" class="link-view">Ahmad Deny Ilhamdi</a></td>
                             <td>2301040003</td>

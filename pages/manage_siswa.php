@@ -80,7 +80,7 @@ $result = $conn->query($query);
                         <a href="../pages/tambah_data_siswa.php">
                         <button type="button">Tambah Data</button>
                         </a>
-                        <a href="../pages/list_data_siswa.html">
+                        <a href="../pages/list_data_siswa.php">
                             <button type="button">Edit</button>
                         </a>
                     </div>

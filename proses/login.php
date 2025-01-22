@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         switch ($user['role']) {
             case 'admin':
-                header("Location: ../pages/dashboard.html");
+                header("Location: ../pages/dashboard.php");
                 break;
             case 'user':
                 header("Location: ../pages/home.html");
