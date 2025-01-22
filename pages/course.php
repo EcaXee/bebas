@@ -89,8 +89,7 @@ include '../proses/db_connection.php';
                 </div>
                <?php
             }
-            ?>
-                <!-- batas card (debugging) -->
+            ?>              
               </div>
             </div>
           </div>

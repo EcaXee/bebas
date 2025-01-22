@@ -1,3 +1,8 @@
+<?php
+include '../proses/db_connection.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,17 +38,35 @@
                         <input type="text" class="form-control" id="nama_guru" name="nama_guru" required>
                     </div>
                     <div class="mb-3">
-                        <label for="kelas" class="form-label">Kelas</label>
-                        <select class="form-select" id="kelas" name="kelas" required>
-                            <!-- Options will be populated from the database -->
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="jurusan" class="form-label">Jurusan</label>
-                        <select class="form-select" id="jurusan" name="jurusan" required>
-                            <!-- Options will be populated from the database -->
-                        </select>
-                    </div>
+                            <label for="kelas" class="form-label">Kelas</label>
+                            <select class="form-select" id="kelas_id" name="kelas_id" required>
+                                <option value="">Pilih Kelas</option>
+                                <?php
+                                $kelasQuery = "SELECT id, nama_kelas FROM kelas";
+                                $kelasResult = $conn->query($kelasQuery);
+                                if ($kelasResult->num_rows > 0) {
+                                    while ($row = $kelasResult->fetch_assoc()) {
+                                        echo "<option value='" . $row['id'] . "'>" . $row['nama_kelas'] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="jurusan" class="form-label">Jurusan</label>
+                            <select class="form-select" id="jurusan_id" name="jurusan_id" required>
+                                <option value="">Pilih Jurusan</option>
+                                <?php
+                                $jurusanQuery = "SELECT id, nama_jurusan FROM jurusan";
+                                $jurusanResult = $conn->query($jurusanQuery);
+                                if ($jurusanResult->num_rows > 0) {
+                                    while ($row = $jurusanResult->fetch_assoc()) {
+                                        echo "<option value='" . $row['id'] . "'>" . $row['nama_jurusan'] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
                     <div class="mb-3">
                         <label for="deskripsi_mapel" class="form-label">Deskripsi Mapel</label>
                         <textarea class="form-control" id="deskripsi_mapel" name="deskripsi_mapel" rows="3" required></textarea>
