@@ -173,7 +173,7 @@ footer  {
     border: #e6e6e6 0.2rem solid;
     border-radius: 1rem;
     padding: 2rem;
-    height: 30rem;
+    height: 45rem;
     width: auto;
     margin-bottom: 3rem;
 }
@@ -186,18 +186,8 @@ footer  {
     border-radius: 0.3rem;
 }
 
-.table {
-    height: 100%;
-    overflow: scroll;
-}
-
-th {
-    position: sticky;
-    top: 0; /* Menjadikan header tetap terlihat saat scroll */
-}
-
 .list {
-    max-height: 20rem; /* Atur tinggi sesuai kebutuhan */
+    max-height: 35rem; /* Atur tinggi sesuai kebutuhan */
     overflow-y: auto; /* Scroll secara vertikal */
     overflow-x: auto; /* Scroll secara horizontal jika tabel terlalu lebar */
     border: 0px solid #ccc; /* Tambahkan border untuk pembungkus */
@@ -262,30 +252,11 @@ th {
     align-items: center;
 }
 
-/* style isi dashboard */
-
-.dashboard-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.count {
-    border: #e6e6e6 0.2rem solid;
-    border-radius: 0.5rem;
-    width: 35rem;
-    height: 12rem;
-    padding: 3rem 1.5rem;
-    margin: 2rem;
-}
-
-.count div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 0.2rem;
-}
-
-.count p {
+.subject p {
     margin: 0;
+    padding: 0;
+}
+
+.detail p{
+    padding: 0 0.2rem;
 }
