@@ -1,3 +1,8 @@
+<?php
+include '../proses/session_siswa.php';
+include '../proses/db_connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,19 +33,34 @@
                 <span class="visually-hidden">Toggle Dropdown</span>
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Kelas 1</a></li>
-                <li><a class="dropdown-item" href="#">Kelas 2</a></li>
-                <li><a class="dropdown-item" href="#">Kelas 3</a></li>
+              <?php
+                                $kelasQuery = "SELECT id, nama_kelas FROM kelas";
+                                $kelasResult = $conn->query($kelasQuery);
+                                if ($kelasResult->num_rows > 0) {
+                                    while ($row = $kelasResult->fetch_assoc()) {
+                                        echo "<option value='" . $row['id'] . "'>" . $row['nama_kelas'] . "</option>";
+                                    }
+                                }
+                                ?>
               </ul>
             </div>
             <div class="semester d-flex flex-row">
-              <h4>Semester 1</h4>
+              <h4>jurusan</h4>
             <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Semester 1</a></li>
-              <li><a class="dropdown-item" href="#">Semester 2</a></li>
+              <li>
+            <?php
+                                $jurusanQuery = "SELECT id, nama_jurusan FROM jurusan";
+                                $jurusanResult = $conn->query($jurusanQuery);
+                                if ($jurusanResult->num_rows > 0) {
+                                    while ($row = $jurusanResult->fetch_assoc()) {
+                                        echo "<option value='" . $row['id'] . "'>" . $row['nama_jurusan'] . "</option>";
+                                    }
+                                }
+                                ?>
+                                </li>
             </ul>
             </div>
           </div>
@@ -56,125 +76,20 @@
                       <div class="card">
                         <img src="../asset/Screenshot (304).png" alt="Judul Berita" />
                         <div class="overlay">
-                          <h5>Mata Pelajaran</h5>
+                          <?php
+                        $query = mysqli_query($conn, "SELECT * FROM mapel");
+            while ($row = mysqli_fetch_array($query)) {
+            ?>
+                          <h5><?php echo $row ['deskripsi_mapel']; ?></<h5>
                         </div>
                       </div>
                     </a>
                   </div>
-                  <p>Nama Mata Pelajaran</p>
+                  <p><?php echo $row ['nama_mapel']; ?></</p>
                 </div>
-                <!-- card 2 -->
-                <div class="mapel-card col">
-                  <div class="col d-flex justify-content-center">
-                    <a href="#">
-                      <div class="card">
-                        <img src="../asset/Screenshot (304).png" alt="Judul Berita" />
-                        <div class="overlay">
-                          <h5>Mata Pelajaran</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <p>Nama Mata Pelajaran</p>
-                </div>
-                <!-- card 3 -->
-                <div class="mapel-card col">
-                  <div class="col d-flex justify-content-center">
-                    <a href="#">
-                      <div class="card">
-                        <img src="../asset/Screenshot (304).png" alt="Judul Berita" />
-                        <div class="overlay">
-                          <h5>Mata Pelajaran</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <p>Nama Mata Pelajaran</p>
-                </div>
-                <!-- card 4 -->
-                <div class="mapel-card col">
-                  <div class="col d-flex justify-content-center">
-                    <a href="#">
-                      <div class="card">
-                        <img src="../asset/Screenshot (304).png" alt="Judul Berita" />
-                        <div class="overlay">
-                          <h5>Mata Pelajaran</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <p>Nama Mata Pelajaran</p>
-                </div>
-                <!-- card 5 -->
-                <div class="mapel-card col">
-                  <div class="col d-flex justify-content-center">
-                    <a href="#">
-                      <div class="card">
-                        <img src="../asset/Screenshot (304).png" alt="Judul Berita" />
-                        <div class="overlay">
-                          <h5>Mata Pelajaran</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <p>Nama Mata Pelajaran</p>
-                </div>
-                <!-- card 6 -->
-                <div class="mapel-card col">
-                  <div class="col d-flex justify-content-center">
-                    <a href="#">
-                      <div class="card">
-                        <img src="../asset/Screenshot (304).png" alt="Judul Berita" />
-                        <div class="overlay">
-                          <h5>Mata Pelajaran</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <p>Nama Mata Pelajaran</p>
-                </div>
-                <!-- card 7 -->
-                <div class="mapel-card col">
-                  <div class="col d-flex justify-content-center">
-                    <a href="#">
-                      <div class="card">
-                        <img src="../asset/Screenshot (304).png" alt="Judul Berita" />
-                        <div class="overlay">
-                          <h5>Mata Pelajaran</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <p>Nama Mata Pelajaran</p>
-                </div>
-                <!-- card 8 -->
-                <div class="mapel-card col">
-                  <div class="col d-flex justify-content-center">
-                    <a href="#">
-                      <div class="card">
-                        <img src="../asset/Screenshot (304).png" alt="Judul Berita" />
-                        <div class="overlay">
-                          <h5>Mata Pelajaran</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <p>Nama Mata Pelajaran</p>
-                </div>
-                <!-- card 9 -->
-                <div class="mapel-card col">
-                  <div class="col d-flex justify-content-center">
-                    <a href="#">
-                      <div class="card">
-                        <img src="../asset/Screenshot (304).png" alt="Judul Berita" />
-                        <div class="overlay">
-                          <h5>Mata Pelajaran</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <p>Nama Mata Pelajaran</p>
-                </div>
+               <?php
+            }
+            ?>
                 <!-- batas card (debugging) -->
               </div>
             </div>

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,6 +30,7 @@
       </div>
     </div>
   
+    
   <!-- berita -->
   <div class="artikel">
       <h1 style="margin-left: 2.5rem;">Berita</h1>
