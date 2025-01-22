@@ -1,3 +1,6 @@
+<?php
+include '../proses/db_connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,17 +29,27 @@
           </div>
           <div class="mapel-list">
             <div class="container">
-              <div class="subject d-flex fle border-bottom">
-                <img src="../asset/Screenshot (304).png" alt="" />
-                <div class="subject-detail">
-                    <div class="text">
-                        <h4><a href="berita.html">pertemuan 1/ tugas 1</a></h4>
-                        <p>isi berita</p>
-                    </div>
-                    <div class="date-news">
-                        <p>tanggal</p>
-                    </div>
-                </div>
+            <?php
+// Ambil data berita terbaru dari database
+$query = mysqli_query($conn, "SELECT * FROM berita ORDER BY created_at DESC");
+while ($row = mysqli_fetch_array($query)) {
+?>
+    <div class="subject d-flex fle border-bottom">
+        <img src="../asset/berita/<?php echo $row['gambar']; ?>" alt="" />
+        <div class="subject-detail">
+            <div class="text">
+                <h4><a href="berita.php?id=<?php echo $row['id_berita']; ?>"><?php echo $row['judul_berita']; ?></a></h4>
+                <p><?php echo $row['isi_berita']; ?></p>
+            </div>
+            <div class="date-news">
+                <p><?php echo $row['created_at']; ?></p>
+            </div>
+        </div>
+    </div>
+<?php
+}
+?>
+
               </div>
             </div>
           </div>
