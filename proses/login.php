@@ -18,23 +18,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
-        // Set session dan redirect berdasarkan role
+        // Set session
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
+        $_SESSION['id'] = $user['id'];
 
+        // Redirect berdasarkan role dengan menyisipkan ID di URL
         switch ($user['role']) {
             case 'admin':
-                header("Location: ../pages/dashboard.php");
+                header("Location: ../pages/dashboard.php?id=" . $user['id']);
                 break;
-            case 'user':
-                header("Location: ../pages/home.html");
+            case 'guru':
+                header("Location: ../pages/dashboard_guru.php?id=" . $user['id']);
                 break;
             case 'siswa':
-                header("Location: ../pages/course.html");
+                header("Location: ../pages/course.html?id=" . $user['id']);
                 break;
             default:
                 echo "Role tidak dikenali.";
         }
+        exit;
     } else {
         echo "Username atau password salah.";
     }
