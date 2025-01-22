@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +42,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/manage_siswa.html">
+                        <a class="nav-link" href="../pages/manage_siswa.php">
                             Siswa
                         </a>
                     </li>
