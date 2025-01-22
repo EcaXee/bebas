@@ -115,7 +115,7 @@ include '../proses/db_connection.php';
                     while ($row = mysqli_fetch_array($query)) {
                     ?>
                     <div>
-                      <h5><a href="berita.php?id=<?php echo $row['id_berita']; ?>"><?php echo $row['judul_berita']; ?></a></h5>
+                      <h5><a href="course.php?id=<?php echo $row['id_berita']; ?>"><?php echo $row['judul_berita']; ?></a></h5>
                       <p><?php echo $row['isi_berita']; ?></p>
                       <p><?php echo $row['created_at']; ?></p>
                     </div>
