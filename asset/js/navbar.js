@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
       </div>
       <div class="login-btn">
-          <a class="btn-login" href="../pages/login.html">Log In</a>
+          <a class="btn-login" href="../proses/logout.php">Logout</a>
       </div>
     </nav>`;
 

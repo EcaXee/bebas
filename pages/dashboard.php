@@ -19,12 +19,12 @@ include '../proses/session_admin.php'
 
 <body>
     <!-- Navbar -->
-    <div id="Navbar"></div>
 
     <!-- Main Section -->
     <main>
         <!-- Sidebar -->
         <div id="Side_bar"></div>
+
         <div class="container">
             <div class="dashboard">
                 <h2>Dashboard</h2>

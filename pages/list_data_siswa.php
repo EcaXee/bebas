@@ -58,7 +58,7 @@ $result = $conn->query($query);
                           // Output data dari setiap baris
                           while($row = $result->fetch_assoc()) {
                               echo "<tr>";?>
-                              <td><a href="view_data.php?id=<?php echo $row['nis']; ?>" class="link-view"><?php echo $row ['nis'] ?></td>
+                              <td><a href="view_data_siswa.php?id=<?php echo $row['nis']; ?>" class="link-view"><?php echo $row ['nis'] ?></td>
                               <?php
                               echo "<td>" . $row["nama"] . "</td>";
                               echo "<td>" . $row["nis"] . "</td>";

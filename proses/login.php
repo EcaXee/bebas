@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header("Location: ../pages/dashboard_guru.php?id=" . $user['id']);
                 break;
             case 'siswa':
-                header("Location: ../pages/course.html?id=" . $user['id']);
+                header("Location: ../pages/course.php?id=" . $user['id']);
                 break;
             default:
                 echo "Role tidak dikenali.";

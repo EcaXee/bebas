@@ -1,3 +1,13 @@
+<?php
+include '../proses/db_connection.php';
+
+$query = "SELECT siswa.nama, siswa.nis, siswa.alamat, siswa.jenis_kelamin, siswa.tanggal_lahir, siswa.nomor_telpon, siswa.email, kelas.nama_kelas, jurusan.nama_jurusan 
+          FROM siswa 
+          JOIN kelas ON siswa.kelas_id = kelas.id 
+          JOIN jurusan ON siswa.jurusan_id = jurusan.id";
+$result = $conn->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,67 +36,74 @@
                     <h3>Detail Data</h3>
                 </div>
                 <div class="card-body">
+                <?php
+                        if ($result->num_rows > 0) {
+                          // Output data dari setiap baris
+                          while($row = $result->fetch_assoc()) {
+                            ?>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                            <p class="form-control-plaintext">John Doe</p>
+                            <p class="form-control-plaintext"><?php echo $row['nama']; ?></p>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">NIS</label>
                         <div class="col-sm-10">
-                            <p class="form-control-plaintext">123456789</p>
+                            <p class="form-control-plaintext"><?php echo $row['nis']; ?></p>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Alamat</label>
                         <div class="col-sm-10">
-                            <p class="form-control-plaintext">Jl. Example No. 1</p>
+                            <p class="form-control-plaintext"><?php echo $row['alamat']; ?></p>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
                         <div class="col-sm-10">
-                            <p class="form-control-plaintext">Laki-laki</p>
+                            <p class="form-control-plaintext"><?php echo $row['jenis_kelamin']; ?></p>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
                         <div class="col-sm-10">
-                            <p class="form-control-plaintext">1990-01-01</p>
+                            <p class="form-control-plaintext"><?php echo $row['tanggal_lahir']; ?></p>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Nomor Telpon</label>
                         <div class="col-sm-10">
-                            <p class="form-control-plaintext">08123456789</p>
+                            <p class="form-control-plaintext"><?php echo $row['nomor_telpon']; ?></p>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                            <p class="form-control-plaintext">john.doe@example.com</p>
+                            <p class="form-control-plaintext"><?php echo $row['email']; ?></p>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Kelas</label>
                         <div class="col-sm-10">
-                            <p class="form-control-plaintext">2</p>
+                            <p class="form-control-plaintext"><?php echo $row['nama_kelas']; ?></p>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Jurusan</label>
                         <div class="col-sm-10">
-                            <p class="form-control-plaintext">RPL</p>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">Keterangan</label>
-                        <div class="col-sm-10">
-                            <p class="form-control-plaintext">Aktif</p>
+                            <p class="form-control-plaintext"><?php echo $row['nama_jurusan']; ?></p>
                         </div>
                     </div>
                 </div>
+                <?php
+                          }
+                      } else {
+                          echo "<tr><td colspan='8'>Tidak ada data</td></tr>";
+                      }
+          
+                      $conn->close();
+                      ?>
             </div>
         </div>
       </div>

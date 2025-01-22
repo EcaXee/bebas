@@ -35,6 +35,6 @@ const footer = `
         </div>
     </footer>
     </div>
-    </div>
+</div>
 `;
 document.getElementById("Footer").innerHTML = footer;
