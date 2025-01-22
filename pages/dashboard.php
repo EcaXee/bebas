@@ -37,7 +37,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/manage_guru.html">
+                        <a class="nav-link" href="../pages/manage_guru.php">
                             Guru
                         </a>
                     </li>
@@ -47,12 +47,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/manage_forum.html">
+                        <a class="nav-link" href="../pages/manage_forum.php">
                             Forum
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/manage_course.html">
+                        <a class="nav-link" href="../pages/manage_course.php">
                             Course
                         </a>
                     </li>

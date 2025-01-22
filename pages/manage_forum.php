@@ -1,3 +1,6 @@
+<?php
+include '../proses/db_connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,41 +24,45 @@
         <h4>Admin</h4>
         <ul class="nav flex-column">
           <div class="menu">
-              <li class="nav-item">
-                  <div class="profile">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
-                          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                      </svg>
-                      <p>nama</p>
-                  </div>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="../pages/manage_guru.html">
-                      Guru
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="../pages/manage_siswa.html">
-                      Siswa
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="../pages/manage_forum.html">
-                      Forum
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="../pages/manage_course.html">
-                      Course
-                  </a>
-              </li>
-          </div>
-          <div class="home">
-              <li class="nav-item">
-                  <a class="nav-link" href="../pages/home.html">
-                      Home
-                  </a>
-              </li>
+          <ul class="nav flex-column">
+                <div class="menu">
+                    <li class="nav-item">
+                        <div class="profile">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                            </svg>
+                            <p>nama</p>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/manage_guru.php">
+                            Guru
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/manage_siswa.php">
+                            Siswa
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/manage_forum.php">
+                            Forum
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/manage_course.php">
+                            Course
+                        </a>
+                    </li>
+                </div>
+                <div class="home">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/home.html">
+                            Home
+                        </a>
+                    </li>
+                </div>
+            </ul>
           </div>
       </ul>
       </div>
@@ -92,7 +99,7 @@
                     });
                   }
                 </script>
-                <a href="../pages/tambah_berita.html">
+                <a href="../pages/tambah_berita.php">
                   <button type="button">Tambah Data</button>
                 </a>
               </div>
@@ -101,13 +108,26 @@
               <div class="container">
                 <div class="subject border-bottom pb-2">
                   <div class="d-flex justify-content-between">
+                  <?php
+                    // Ambil data berita terbaru dari database
+                    $query = mysqli_query($conn, "SELECT * FROM berita ORDER BY created_at DESC");
+                    while ($row = mysqli_fetch_array($query)) {
+                    ?>
                     <div>
-                      <h5><a href="#">Judul Berita</a></h5>
-                      <p>tanggal</p>
+                      <h5><a href="berita.php?id=<?php echo $row['id_berita']; ?>"><?php echo $row['judul_berita']; ?></a></h5>
+                      <p><?php echo $row['isi_berita']; ?></p>
+                      <p><?php echo $row['created_at']; ?></p>
                     </div>
                     <div>
-                      <a href="">hapus</a>
+                      <a href="../proses/hapus_berita.php?id=<?php echo $row ['id_berita']; ?>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                          <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                      </svg></a>
+                      
                     </div>
+                    <?php
+                    }
+                  ?>
                   </div>
                 </div>
               </div>

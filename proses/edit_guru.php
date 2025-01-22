@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Menjalankan query
     if (mysqli_query($conn, $query)) {
         // Redirect ke halaman guru atau halaman lain setelah update berhasil
-        header("Location: ../pages/dashboard.php");
+        header("Location: ../pages/list_data_guru.php");
         exit();
     } else {
         // Menampilkan pesan error jika query gagal

@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
             <div class="dashboard">
                 <h2>Edit Data Guru</h2>
                 <div class="manage column">
-                    <form action="../proses/edit_gurU.php" method="POST">
+                    <form action="../proses/edit_guru.php" method="POST">
                         <input type="hidden" id="nip" name="nip" value="<?php echo $row['nip']; ?>">
                         
                         <div class="mb-3">

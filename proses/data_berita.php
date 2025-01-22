@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             if ($conn->query($sql) === TRUE) {
                 echo "Berita berhasil disimpan.";
-                header("Location: ../pages/forum.php");
+                header("Location: ../pages/manage_forum.php");
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }

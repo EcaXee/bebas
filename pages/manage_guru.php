@@ -1,3 +1,11 @@
+<?php
+include '../proses/db_connection.php';
+
+$query = "SELECT guru.nama, guru.nip, guru.alamat, guru.email, guru.keterangan 
+          FROM guru";
+$result = $conn->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,22 +38,22 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/manage_guru.html">
+                        <a class="nav-link" href="../pages/manage_guru.php">
                             Guru
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/manage_siswa.html">
+                        <a class="nav-link" href="../pages/manage_siswa.php">
                             Siswa
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/manage_forum.html">
+                        <a class="nav-link" href="../pages/manage_forum.php">
                             Forum
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/manage_course.html">
+                        <a class="nav-link" href="../pages/manage_course.php">
                             Course
                         </a>
                     </li>
@@ -89,34 +97,26 @@
                         <tbody>
                             <tbody>
                             <?php
-                            include '../proses/db_connection.php';
-
-                            $sql = "SELECT * FROM guru";
-                            $result = $conn->query($sql);
-                            if ($conn->connect_error) {
-                                die("Koneksi gagal: " . $conn->connect_error);
-                            }
-                
-                            $sql = "SELECT * FROM guru";
-                            $result = $conn->query($sql);
-                
-                            if ($result->num_rows > 0) {
-                                // Output data dari setiap baris
-                                while($row = $result->fetch_assoc()) {
-                                    echo "<tr>";
-                                    echo "<td>" . $row["nip"] . "</td>";
-                                    echo "<td>" . $row["nama"] . "</td>";
-                                    echo "<td>" . $row["alamat"] . "</td>";
-                                    echo "<td>" . $row["email"] . "</td>";
-                                    echo "<td>" . $row["keterangan"] . "</td>";
-                                    echo "</tr>";
-                                }
-                            } else {
-                                echo "<tr><td colspan='8'>Tidak ada data</td></tr>";
-                            }
-                
-                            $conn->close();
-                            ?>
+                        if ($result->num_rows > 0) {
+                          // Output data dari setiap baris
+                          while($row = $result->fetch_assoc()) {
+                              echo "<tr>";?>
+                              <td><a href="view_data.php?id=<?php echo $row['nip']; ?>" class="link-view" style="text-decoration: none; color: black;"><?php echo $row ['nip'] ?></td>
+                              <?php
+                              echo "<td>" . $row["nama"] . "</td>";
+                              echo "<td>" . $row["alamat"] . "</td>";
+                              echo "<td>" . $row["email"] . "</td>";
+                              echo "<td>" . $row["keterangan"] . "</td>";
+                              ?>
+                              <?php
+                              echo "</tr>";
+                          }
+                      } else {
+                          echo "<tr><td colspan='8'>Tidak ada data</td></tr>";
+                      }
+          
+                      $conn->close();
+                      ?>
                         </tbody>
                     </table>
                 </div>

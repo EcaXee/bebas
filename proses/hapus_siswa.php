@@ -5,15 +5,15 @@ include 'db_connection.php';
 // Memastikan parameter id diterima melalui URL
 if (isset($_GET['id'])) {
     // Mendapatkan nilai nip dari parameter URL
-    $nip = $_GET['id'];
+    $nis = $_GET['id'];
 
     // Query untuk menghapus data guru
-    $query = "DELETE FROM guru WHERE nip = '$nip'";
+    $query = "DELETE FROM siswa WHERE nis = '$nis'";
 
     // Menjalankan query
     if (mysqli_query($conn, $query)) {
         // Redirect ke halaman dashboard setelah penghapusan berhasil
-        header("Location: ../pages/list_data_guru.php?message=delete_success");
+        header("Location: ../pages/list_data_siswa.php?message=delete_success");
         exit();
     } else {
         // Menampilkan pesan error jika query gagal
@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
     }
 } else {
     // Jika parameter id tidak ditemukan, redirect kembali ke halaman dashboard
-    header("Location: ../pages/list_data_guru.php?message=delete_error");
+    header("Location: ../pages/list_data_siswa.php?message=delete_error");
     exit();
 }
 

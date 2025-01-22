@@ -261,3 +261,8 @@ th {
     flex-direction: column;
     align-items: center;
 }
+
+.table a {
+    text-decoration: none;
+    color: black;
+}

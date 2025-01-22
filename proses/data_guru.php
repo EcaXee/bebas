@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Menjalankan pernyataan SQL
     if ($stmt->execute()) {
         echo "Data berhasil disimpan.";
-        header("Location: ../pages/dashboard.html");
+        header("Location: ../pages/manage_guru.php");
     } else {
         echo "Terjadi kesalahan: " . $conn->error;
     }
